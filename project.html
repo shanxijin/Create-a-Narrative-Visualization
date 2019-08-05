@@ -1,5 +1,6 @@
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
   // Create a button to trigger the transition to GDP_2017
 <button onclick="triggerTransitionFunc()">Trigger transition</button>
 <style> 
@@ -65,6 +66,25 @@
           .html("GDP is "+d)
         })
     .on("mouseout",function(){tooltip.style("opacity",0)});
+    
+  const annotations = [
+    {
+      note: {
+        label: "This is the toppest GDP country",
+      },
+      x: 100,
+      y: 100,
+      dy: 100,
+      dx: 100
+    }
+  ]
+
+  // Add annotation to the chart
+  const makeAnnotations = d3.annotation().annotations(annotations)
+  d3.select("svg")
+    .append("g")
+    .call(makeAnnotations)  
+    
   d3.select("svg")
     .selectAll("rect")
     .data(GDP_2014)
@@ -118,6 +138,7 @@
         })
     .on("mouseout",function(){tooltip.style("opacity",0)})
   ;}
+        
   </script>
 </body>
 </html>
