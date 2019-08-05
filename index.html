@@ -58,9 +58,9 @@
     .data(GDP_2013)
     .enter()
     .append("rect")
-    .attr("x",function(d,i){return i*x.bandwidth();})
+    .attr("x",function(d,i){return i*x.bandwidth()+5;})
     .attr("y",function(d,i){return y(d);})
-    .attr("width",x.bandwidth())
+    .attr("width",x.bandwidth()-10)
     .attr("height",function(d,i){return height-y(d);})
     .on("mouseover",function(d,i){
         tooltip.style("opacity",1)
