@@ -1,5 +1,7 @@
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
+  // Create a button to trigger the transition to GDP_2017
+<button onclick="triggerTransitionFunc()">Trigger transition</button>
 <style> 
   rect {
       fill: lightblue; 
@@ -110,7 +112,7 @@
         })
     .on("mouseout",function(){tooltip.style("opacity",0)});
 
-  function triggerTransition(){
+  function triggerTransitionFunc(){
     d3.select("svg").selectAll("rect")
       .data(GDP_2017)
       .transition().duration(3000).delay(9000)
